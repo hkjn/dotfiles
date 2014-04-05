@@ -106,11 +106,18 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-export PATH=/meta/src:/usr/local/src/go_appengine:$HOME/go/bin:.:$PATH
+export EDITOR=emacs
+# Note: I'd like to include /meta/src here, but that can hang the
+# tty when the sshfs isn't connected, if /meta is remote..
+export PATH=/usr/local/src/go_appengine:$HOME/go/bin:.:$PATH
+
+alias e="emacs -nw $1"
+alias ec="e /$HOME/.bash_profile"
+alias rf="source $HOME/.bash_profile"
+alias t="tmux attach -d"
+
 export GOPATH=$HOME/go:/home/$USER:/meta:$GOPATH
 export PYTHONPATH=.:..:/home/$USER/src/python-blink1
-alias e="emacs $1"
-alias t="tmux attach -d"
 
 # Fire up a ssh-agent, take its environment variables.
 alias get_me_my_agent=eval "$(ssh-agent)"
@@ -121,5 +128,5 @@ alias ssha="get_me_my_agent; ssh-add ~/.ssh/id_rsa"
 source $HOME/.arch_aliases
 source $HOME/.meta_aliases
 
-# Don't scatter __pycache__.
-export PYTHONDONTWRITEBYTECODE=indeed
+# Don't scatter __pycache__ directories all over the place.
+export PYTHONDONTWRITEBYTECODE=1
