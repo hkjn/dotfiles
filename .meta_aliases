@@ -1,0 +1,12 @@
+# TODO: Should automatically fall back on local path if /meta is
+# unmounted - /media/farouk/src exists for this purpose, with
+# /home/zero/mount_iago_fallback.sh to mount it, given passphrase.
+
+# TODO: Should auto-sync a local backup of /meta/ directories when
+# mounting dumbo, and periodically while mounted.
+alias acpi_set_brigthtness=/meta/src/acpi_set_brightness.sh
+alias largest_files=/meta/scripts/largest_files.sh
+alias lxde_rotate_wallpaper=/meta/src/lxde_rotate_wallpaper.sh
+alias mount_dumbo=/meta/src/mount_dumbo.sh
+alias mount_iago=/meta/src/mount_iago.sh
+alias umount_dumbo=/meta/src/umount_dumbo.sh
