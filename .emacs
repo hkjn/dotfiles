@@ -39,10 +39,11 @@
     (expand-file-name
      (concat "#%" (buffer-name) "#")))))
 
+;; TODO(hkjn): Concat with user-login-name.
 (add-to-list 'load-path "/home/zero/src/emacs")
+
+;; We want go-mode, and gofmt hook.
 (require 'go-mode-load)
 (add-hook 'before-save-hook #'gofmt-before-save)
 
-;; We want orgmode.
-;; TODO: Enable once packer + orgmode are installed.
-;; (require 'org-loaddefs.el)
+
