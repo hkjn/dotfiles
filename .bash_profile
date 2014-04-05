@@ -112,8 +112,10 @@ export PYTHONPATH=.:..:/home/$USER/src/python-blink1
 alias e="emacs $1"
 alias t="tmux attach -d"
 
-# Fire up a ssh-agent, take its environment variables; add private SSH key.
-alias ssha="eval $(ssh-agent); ssh-add ~/.ssh/id_rsa"
+# Fire up a ssh-agent, take its environment variables.
+alias get_me_my_agent=eval "$(ssh-agent)"
+# Do the above and also add private SSH key.
+alias ssha="get_me_my_agent; ssh-add ~/.ssh/id_rsa"
 
 # Include extra Arch aliases.
 source $HOME/.arch_aliases
