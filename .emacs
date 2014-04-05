@@ -1,4 +1,5 @@
 (setq default-tab-width 2) 
+;; What should TAB do?
 ;;(global-set-key (kbd "TAB") 'self-insert-command) 
 
 (set-default-font "-adobe-courier-medium-r-normal--14-140-75-75-m-90-iso8859-1")
