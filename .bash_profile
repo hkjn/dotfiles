@@ -119,10 +119,35 @@ alias t="tmux attach -d"
 export GOPATH=$HOME/go:/home/$USER:/meta:$GOPATH
 export PYTHONPATH=.:..:/home/$USER/src/python-blink1
 
-# Fire up a ssh-agent, take its environment variables.
-alias get_me_my_agent=eval "$(ssh-agent)"
-# Do the above and also add private SSH key.
-alias ssha="get_me_my_agent; ssh-add ~/.ssh/id_rsa"
+# SSH-agent hacks came from
+# http://superuser.com/questions/141044/sharing-the-same-ssh-agent-among-multiple-login-sessions.
+do-ssh-agent() {
+  # function to start the ssh-agent and store the agent details for later logon
+  ssh-agent -s > ~/.ssh-agent.conf 2> /dev/null
+  . ~/.ssh-agent.conf > /dev/null
+}
+
+# set time a key should be kept in seconds
+keyage=3600
+
+if [ -f ~/.ssh-agent.conf ] ; then
+  . ~/.ssh-agent.conf > /dev/null
+  ssh-add -l > /dev/null 2>&1
+  # $?=0 means the socket is there and it has a key
+  # $?=1 means the socket is there but contains no key
+  # $?=2 means the socket is not there or broken
+  stat=$?
+  if [ $stat -eq 1 ] ; then
+    ssh-add -t $keyage > /dev/null 2>&1
+  elif [ $stat -eq 2 ] ; then
+    rm -f $SSH_AUTH_SOCK
+    do-ssh-agent
+    ssh-add -t $keyage > /dev/null 2>&1
+  fi
+else
+  do-ssh-agent
+  ssh-add -t $keyage > /dev/null 2>&1
+fi
 
 # Include extra Arch aliases.
 source $HOME/.arch_aliases
