@@ -127,11 +127,11 @@ do-ssh-agent() {
   . ~/.ssh-agent.conf > /dev/null
 }
 
-# set time a key should be kept in seconds
-keyage=3600
+# Time a key should be kept, in seconds.
+keyage=$((3600*8))
 
 if [ -f ~/.ssh-agent.conf ] ; then
-  . ~/.ssh-agent.conf > /dev/null
+  source ~/.ssh-agent.conf > /dev/null
   ssh-add -l > /dev/null 2>&1
   # $?=0 means the socket is there and it has a key
   # $?=1 means the socket is there but contains no key
