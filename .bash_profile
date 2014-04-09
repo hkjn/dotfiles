@@ -116,7 +116,7 @@ alias ec="e /$HOME/.bash_profile"
 alias rf="source $HOME/.bash_profile"
 alias t="tmux attach -d"
 
-export GOPATH=$HOME/go:/home/$USER:/meta:$GOPATH
+export GOPATH=$HOME/go:$GOPATH
 export PYTHONPATH=.:..:/home/$USER/src/python-blink1
 
 # SSH-agent hacks came from
