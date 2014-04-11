@@ -119,34 +119,38 @@ alias t="tmux attach -d"
 export GOPATH=$HOME/go:$GOPATH
 export PYTHONPATH=.:..:/home/$USER/src/python-blink1
 
-# SSH-agent hacks came from
+# SSH-agent setup via
 # http://superuser.com/questions/141044/sharing-the-same-ssh-agent-among-multiple-login-sessions.
-do-ssh-agent() {
-  # function to start the ssh-agent and store the agent details for later logon
+start-ssh-agent() {
+  # Starts ssh-agent and stores the SSH_AUTH_SOCK / SSH_AGENT_PID for
+  # later reuse.
   ssh-agent -s > ~/.ssh-agent.conf 2> /dev/null
-  . ~/.ssh-agent.conf > /dev/null
+  source ~/.ssh-agent.conf > /dev/null
 }
 
 # Time a key should be kept, in seconds.
-keyage=$((3600*8))
+key_ttl=$((3600*8))
 
 if [ -f ~/.ssh-agent.conf ] ; then
+  # Found previous config, try loading it.
   source ~/.ssh-agent.conf > /dev/null
+	# List all identities the SSH agent knows about.
   ssh-add -l > /dev/null 2>&1
-  # $?=0 means the socket is there and it has a key
-  # $?=1 means the socket is there but contains no key
-  # $?=2 means the socket is not there or broken
   stat=$?
+  # $?=0 means the socket is there and it has a key
   if [ $stat -eq 1 ] ; then
-    ssh-add -t $keyage > /dev/null 2>&1
+		# $?=1 means the socket is there but contains no key
+    ssh-add -t $key_ttl > /dev/null 2>&1
   elif [ $stat -eq 2 ] ; then
+		# $?=2 means the socket is not there or broken
     rm -f $SSH_AUTH_SOCK
-    do-ssh-agent
-    ssh-add -t $keyage > /dev/null 2>&1
+    start-ssh-agent
+    ssh-add -t $key_ttl > /dev/null 2>&1
   fi
 else
-  do-ssh-agent
-  ssh-add -t $keyage > /dev/null 2>&1
+	# No existing config.
+  start-ssh-agent
+  ssh-add -t $key_ttl > /dev/null 2>&1
 fi
 
 # Include extra Arch aliases.
