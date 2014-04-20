@@ -45,3 +45,6 @@
 ;; We want go-mode, and gofmt hook.
 (require 'go-mode-load)
 (add-hook 'before-save-hook #'gofmt-before-save)
+
+;; Use html-mode for .tmpl files.
+(add-to-list 'auto-mode-alist '("\\.tmpl\\'" . html-mode))
