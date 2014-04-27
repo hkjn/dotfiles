@@ -107,9 +107,7 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 export EDITOR=emacs
-# Note: I'd like to include /meta/src here, but that can hang the
-# tty when the sshfs isn't connected, if /meta is remote..
-export PATH=/usr/local/src/go_appengine:$HOME/scripts:$HOME/scripts/tools:$HOME/go/bin:.:$PATH
+export PATH=/usr/local/src/go_appengine:${HOME}/scripts:${HOME}/scripts/tools:${HOME}/go/bin:.:$PATH
 
 alias e="emacs -nw $1"
 alias ec="e /$HOME/.bash_profile"
