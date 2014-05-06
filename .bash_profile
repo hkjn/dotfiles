@@ -1,6 +1,4 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples.
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -11,10 +9,12 @@ export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 # ... or force ignoredups and ignorespace
 export HISTCONTROL=ignoreboth
 
-# append to the history file, don't overwrite it
+# Append to the history file, don't overwrite it.
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -91,7 +91,7 @@ if [ -x /usr/bin/dircolors ]; then
     #alias egrep='egrep --color=auto'
 fi
 
-alias ec="emacs /$HOME/.bash_profile"
+alias ec="emacsclient /$HOME/.bash_profile"
 alias rf="source $HOME/.bash_profile"
 
 # some more ls aliases
@@ -106,15 +106,15 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-export EDITOR=emacs
+export EDITOR=emacsclient
 export PATH=/usr/local/src/go_appengine:${HOME}/scripts:${HOME}/scripts/tools:${HOME}/go/bin:.:$PATH
 
-alias e="emacs -nw $1"
+alias e="emacsclient -nw $1"
 alias ec="e /$HOME/.bash_profile"
 alias rf="source $HOME/.bash_profile"
 alias t="tmux attach -d"
 
-export GOPATH=$HOME/go:$GOPATH
+export GOPATH=${HOME}/go:${HOME}:$GOPATH
 export PYTHONPATH=.:..:/home/$USER/src/python-blink1
 
 # SSH-agent setup via
