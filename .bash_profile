@@ -107,12 +107,13 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 export EDITOR=emacsclient
-export PATH=/usr/local/src/go_appengine:${HOME}/scripts:${HOME}/scripts/tools:${HOME}/go/bin:.:$PATH
+export PATH=/usr/local/src/go_appengine:${HOME}/src:${HOME}/src/tools:${HOME}/go/bin:.:$PATH
 
 alias e="emacsclient -nw $1"
 alias ec="e /$HOME/.bash_profile"
 alias rf="source $HOME/.bash_profile"
-alias t="tmux attach -d"
+alias tm="tmux attach -d -t main"
+alias tw="tmux attach -d -t work"
 
 export GOPATH=${HOME}/go:${HOME}:$GOPATH
 export PYTHONPATH=.:..:/home/$USER/src/python-blink1
