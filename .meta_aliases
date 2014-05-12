@@ -1,5 +1,5 @@
 # TODO: Should automatically fall back on local path if /meta is unmounted / unreachable.
-alias acpi_set_brigthtness=/meta/scripts/acpi_set_brightness.sh
+alias acpi_set_brightness=/meta/scripts/acpi_set_brightness.sh
 alias largest_dirs=/meta/scripts/largest_dirs.sh
 alias lxde_rotate_wallpaper=/meta/scripts/lxde_rotate_wallpaper.sh
 alias mount_dumbo=/meta/scripts/mount_dumbo.sh
