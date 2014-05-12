@@ -25,9 +25,10 @@ directory = ./downloads/
 # relative path?
 session = ./downloads/.session
 
-# Watch a directory for new torrents, stop those that have been
-# deleted, and stop when diskspace is low.
-schedule = watch_directory,5,5,load_start=./downloads/.watch/*.torrent,low_diskspace,5,60,close_low_diskspace=100M
+# Watch a directory for new torrents and stop those that have been
+# deleted.
+schedule = watch_directory,5,5,load_start=./downloads/.watch/*.torrent
+#schedule = low_diskspace,5,60,close_low_diskspace=100M
 #schedule = watch_directory,5,5,load_start=./watch/*.torrent
 #schedule = untied_directory,5,5,stop_untied=
 
