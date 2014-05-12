@@ -1,0 +1,5 @@
+[user]
+	email = me@hkjn.me
+	name = Henrik Jonsson
+[push]
+	default = current
