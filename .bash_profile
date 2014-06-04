@@ -114,6 +114,7 @@ alias ec="e /$HOME/.bash_profile"
 alias rf="source $HOME/.bash_profile"
 alias tm="tmux attach -d -t main"
 alias tw="tmux attach -d -t work"
+alias tl="tmux list-sessions"
 alias tc="tmux new -s $1"
 alias ta="tmux attach -d -t $1"
 
