@@ -95,7 +95,7 @@ alias ec="emacsclient /$HOME/.bash_profile"
 alias rf="source $HOME/.bash_profile"
 
 # some more ls aliases
-#alias ll='ls -l'
+alias ll='ls -hsAl'
 #alias la='ls -A'
 #alias l='ls -CF'
 
