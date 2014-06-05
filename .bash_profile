@@ -118,6 +118,8 @@ alias tl="tmux list-sessions"
 alias tc="tmux new -s $1"
 alias ta="tmux attach -d -t $1"
 
+alias pp="git pull && git push"
+
 export GOPATH=${HOME}/go:${HOME}:$GOPATH
 export PYTHONPATH=.:..:/home/$USER/src/python-blink1
 
