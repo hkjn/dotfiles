@@ -163,3 +163,6 @@ source $HOME/.meta_aliases
 
 # Don't scatter __pycache__ directories all over the place.
 export PYTHONDONTWRITEBYTECODE=1
+
+# GPG always wants to know what TTY it's running on. 
+export GPG_TTY=`tty`
