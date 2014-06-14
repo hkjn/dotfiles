@@ -3,3 +3,5 @@
 	name = Henrik Jonsson
 [push]
 	default = current
+[core]
+	editor = emacsclient -t -a=\\\"\\\"
