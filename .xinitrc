@@ -1,4 +1,6 @@
 xbindkeys
+# Pull in custom key mappings.
+xmodmap .Xmodmap
 # Set up 2x2 grid for workspace (not configurable by obconf; choices
 # are either the custom lxde_set_layout.c script or installing a
 # pager).
