@@ -141,7 +141,6 @@ start-ssh-agent() {
 
 # Time a key should be kept, in seconds.
 key_ttl=$((3600*8))
-
 if [ -f ~/.ssh-agent.conf ] ; then
   # Found previous config, try loading it.
   source ~/.ssh-agent.conf > /dev/null
@@ -163,6 +162,14 @@ else
   start-ssh-agent
   ssh-add -t $key_ttl > /dev/null 2>&1
 fi
+
+# Timed GTK dialogs; use like "timer 25m your note here".
+timer() {
+  local N=$1; shift
+
+  (sleep $N && zenity --info --title="Time's Up" --text="${*:-BING}") &
+  echo "timer set for $N"
+}
 
 # Include extra Arch aliases.
 source $HOME/.arch_aliases
