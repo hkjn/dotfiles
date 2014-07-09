@@ -127,7 +127,7 @@ alias ta="tmux attach -d -t $1"
 
 alias pp="git pull && git push"
 
-export GOPATH=${HOME}/go:${HOME}:$GOPATH
+export GOPATH=${HOME}:$GOPATH
 export PYTHONPATH=.:..:/home/$USER/src/python-blink1
 
 # SSH-agent setup via
@@ -180,3 +180,4 @@ export PYTHONDONTWRITEBYTECODE=1
 
 # GPG always wants to know what TTY it's running on. 
 export GPG_TTY=`tty`
+
