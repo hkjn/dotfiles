@@ -26,6 +26,7 @@
 ;; backed up in the corresponding directory. Emacs will mkdir it if necessary.)
 (defvar backup-dir (concat "/tmp/emacs_backups/" (user-login-name) "/"))
 (setq backup-directory-alist (list (cons "." backup-dir)))
+
 (make-directory autosave-dir t)
 
 (defun auto-save-file-name-p (filename)
@@ -95,3 +96,9 @@ If the file is emacs lisp, run the byte compiled version if exist."
         ))))
 
 (global-set-key (kbd "<f9>") 'xah-run-current-file)
+
+;; Go mode.
+(add-to-list 'load-path "/home/zero/src/emacs")
+(require 'go-mode-load)
+(add-hook 'before-save-hook #'gofmt-before-save)
+
