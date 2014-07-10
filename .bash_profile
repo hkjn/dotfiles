@@ -49,13 +49,6 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-
-# Show git branch in shell info
-git_branch() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
-}
-
-
 if [ "$color_prompt" = yes ]; then
     PS1="${debian_chroot:+($debian_chroot)}\[\033[01;11m\]\$(git_branch) \[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
 else
@@ -77,14 +70,10 @@ xterm*|rxvt*)
     ;;
 esac
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+# Pull in useful functions.
+source ${HOME}/src/bash_funcs.sh
 
-#if [ -f ~/.bash_aliases ]; then
-#    . ~/.bash_aliases
-#fi
+# Alias definitions.
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -100,11 +89,7 @@ fi
 
 alias ec="emacsclient /$HOME/.bash_profile"
 alias rf="source $HOME/.bash_profile"
-
-# some more ls aliases
 alias ll='ls -hsAl'
-#alias la='ls -A'
-#alias l='ls -CF'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -112,12 +97,6 @@ alias ll='ls -hsAl'
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
-
-export EDITOR=emacsclient
-export GOROOT=/usr/lib/go
-export GOPATH=${HOME}:/usr/lib/go
-export PYTHONPATH=.:..:/home/$USER/src/python-blink1
-export PATH=/usr/local/src/go_appengine:${HOME}/src:${HOME}/src/tools:${HOME}/go/bin:.:$PATH
 
 alias e="emacsclient -nw $1"
 alias ec="e /$HOME/.bash_profile"
@@ -130,46 +109,11 @@ alias ta="tmux attach -d -t $1"
 
 alias pp="git pull && git push"
 
-# SSH-agent setup via
-# http://superuser.com/questions/141044/sharing-the-same-ssh-agent-among-multiple-login-sessions.
-start-ssh-agent() {
-  # Starts ssh-agent and stores the SSH_AUTH_SOCK / SSH_AGENT_PID for
-  # later reuse.
-  ssh-agent -s > ~/.ssh-agent.conf 2> /dev/null
-  source ~/.ssh-agent.conf > /dev/null
-}
-
-# Time a key should be kept, in seconds.
-key_ttl=$((3600*8))
-if [ -f ~/.ssh-agent.conf ] ; then
-  # Found previous config, try loading it.
-  source ~/.ssh-agent.conf > /dev/null
-	# List all identities the SSH agent knows about.
-  ssh-add -l > /dev/null 2>&1
-  stat=$?
-  # $?=0 means the socket is there and it has a key
-  if [ $stat -eq 1 ] ; then
-		# $?=1 means the socket is there but contains no key
-    ssh-add -t $key_ttl > /dev/null 2>&1
-  elif [ $stat -eq 2 ] ; then
-		# $?=2 means the socket is not there or broken
-    rm -f $SSH_AUTH_SOCK
-    start-ssh-agent
-    ssh-add -t $key_ttl > /dev/null 2>&1
-  fi
-else
-	# No existing config.
-  start-ssh-agent
-  ssh-add -t $key_ttl > /dev/null 2>&1
-fi
-
-# Timed GTK dialogs; use like "timer 25m your note here".
-timer() {
-  local N=$1; shift
-
-  (sleep $N && zenity --info --title="Time's Up" --text="${*:-BING}") &
-  echo "timer set for $N"
-}
+export EDITOR=emacsclient
+export GOROOT=/usr/lib/go
+export GOPATH=${HOME}:/usr/lib/go
+export PYTHONPATH=.:..:/home/$USER/src/python-blink1
+export PATH=/usr/local/src/go_appengine:${HOME}/src:${HOME}/src/tools:${HOME}/go/bin:.:$PATH
 
 # Include extra Arch aliases.
 source $HOME/.arch_aliases
