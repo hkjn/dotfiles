@@ -90,6 +90,7 @@ fi
 alias ec="emacsclient /$HOME/.bash_profile"
 alias rf="source $HOME/.bash_profile"
 alias ll='ls -hsAl'
+alias mp="mplayer -af scaletempo $@"
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
