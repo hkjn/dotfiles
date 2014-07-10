@@ -114,6 +114,9 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 export EDITOR=emacsclient
+export GOROOT=/usr/lib/go
+export GOPATH=${HOME}:/usr/lib/go
+export PYTHONPATH=.:..:/home/$USER/src/python-blink1
 export PATH=/usr/local/src/go_appengine:${HOME}/src:${HOME}/src/tools:${HOME}/go/bin:.:$PATH
 
 alias e="emacsclient -nw $1"
@@ -126,9 +129,6 @@ alias tc="tmux new -s $1"
 alias ta="tmux attach -d -t $1"
 
 alias pp="git pull && git push"
-
-export GOPATH=${HOME}:$GOPATH
-export PYTHONPATH=.:..:/home/$USER/src/python-blink1
 
 # SSH-agent setup via
 # http://superuser.com/questions/141044/sharing-the-same-ssh-agent-among-multiple-login-sessions.
