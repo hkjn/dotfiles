@@ -54,6 +54,8 @@
 "/usr/bin/inc_intel_backlight"
   XF86MonBrightnessUp
 
+# TODO: Do increase in higher intervals using control + XF86MonBrightnessUp?
+
 # TODO: Figure out why this does not work:
 #"/usr/bin/scrot -s -e 'mv $f /home/zero/screenshots/'"
 #  Print
