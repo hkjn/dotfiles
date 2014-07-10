@@ -77,7 +77,6 @@ chatnets = {
   OFTC = { 
     type = "IRC";
 		nick = "hkjn";
-    autosendcmd = "/msg nickserv identify qpwo10";
     max_kicks = "1";
     max_msgs = "3";
     max_whois = "30";
@@ -110,7 +109,6 @@ chatnets = {
   freenode = {
     type = "IRC";
     nick = "hkjn";
-    autosendcmd = "/msg nickserv identify qpwo10";
   };
 };
 
