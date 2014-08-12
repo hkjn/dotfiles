@@ -6,4 +6,4 @@
 [core]
 	editor = emacsclient -t -a=\\\"\\\"
 [credential]
-	helper = cache --timeout=3600
+	helper = cache --timeout=10800
