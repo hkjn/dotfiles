@@ -91,6 +91,7 @@ alias ec="emacsclient /$HOME/.bash_profile"
 alias rf="source $HOME/.bash_profile"
 alias ll='ls -hsAl'
 alias mp="mplayer -af scaletempo $@"
+alias mp50="mplayer -af scaletempo -vf dsize=1024:-2 $@"
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -126,3 +127,12 @@ export PYTHONDONTWRITEBYTECODE=1
 # GPG always wants to know what TTY it's running on. 
 export GPG_TTY=`tty`
 
+# The next line updates PATH for the Google Cloud SDK.
+source '/usr/local/src/google-cloud-sdk/path.bash.inc'
+
+# The next line enables bash completion for gcloud.
+source '/usr/local/src/google-cloud-sdk/completion.bash.inc'
+
+export CLOUDSDK_PYTHON=python2
+
+alias gssh='gcutil ssh zero-cloud-1'
