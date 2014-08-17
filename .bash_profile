@@ -91,7 +91,7 @@ alias ec="emacsclient /$HOME/.bash_profile"
 alias rf="source $HOME/.bash_profile"
 alias ll='ls -hsAl'
 alias mp="mplayer -af scaletempo $@"
-alias mp50="mplayer -af scaletempo -vf dsize=1024:-2 $@"
+alias mp50="mplayer -af scaletempo -vf dsize=1024:-2 -panscanrange -5 $@"
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
