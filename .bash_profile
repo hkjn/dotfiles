@@ -71,7 +71,9 @@ xterm*|rxvt*)
 esac
 
 # Pull in useful functions.
-source ${HOME}/src/bash_funcs.sh
+if [ -e ${HOME}/src/bash_funcs.sh ]; then
+  source ${HOME}/src/bash_funcs.sh
+fi
 
 # Alias definitions.
 
