@@ -110,6 +110,7 @@ alias tw="tmux attach -d -t work"
 alias tl="tmux list-sessions"
 alias tc="tmux new -s $1"
 alias ta="tmux attach -d -t $1"
+alias mv="mv -n"
 
 alias pp="git pull && git push"
 
