@@ -33,9 +33,6 @@ case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
 
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
 force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
@@ -48,6 +45,11 @@ if [ -n "$force_color_prompt" ]; then
 	color_prompt=
     fi
 fi
+
+# Show git branch.
+git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
 
 if [ "$color_prompt" = yes ]; then
     PS1="${debian_chroot:+($debian_chroot)}\[\033[01;11m\]\$(git_branch) \[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
@@ -63,8 +65,6 @@ ENDCOLOR="\e[0m"
 case "$TERM" in
 xterm*|rxvt*)
     PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"		
-#    PS1="\[$STARTCOLOR${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$ENDCOLOR $PS1 "		
-#    PS1="\e[0;34m\u@\h \w> \e[m"
     ;;
 *)
     ;;
@@ -89,11 +89,6 @@ if [ -x /usr/bin/dircolors ]; then
     #alias egrep='egrep --color=auto'
 fi
 
-alias ec="emacsclient /$HOME/.bash_profile"
-alias rf="source $HOME/.bash_profile"
-alias ll='ls -hsAl'
-alias mp="mplayer -af scaletempo $@"
-alias mp50="mplayer -af scaletempo -vf dsize=1024:-2 -panscanrange -5 $@"
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -110,8 +105,10 @@ alias tw="tmux attach -d -t work"
 alias tl="tmux list-sessions"
 alias tc="tmux new -s $1"
 alias ta="tmux attach -d -t $1"
-
+alias ll='ls -hsAl'
 alias pp="git pull && git push"
+alias mp="mplayer -af scaletempo $@"
+alias mp50="mplayer -af scaletempo -vf dsize=1024:-2 -panscanrange -5 $@"
 
 export EDITOR=emacsclient
 export GOROOT=/usr/lib/go
@@ -138,4 +135,4 @@ source '/usr/local/src/google-cloud-sdk/completion.bash.inc'
 export CLOUDSDK_PYTHON=python2
 
 alias sshzero='ssh zero-cloud-1.europe-west1-b.henrik-jonsson'
-alias sshstaging='ssh staging-1.europe-west1-a.exemplary-cycle-688'
+alias sshstaging='ssh staging-2.europe-west1-a.exemplary-cycle-688'
