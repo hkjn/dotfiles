@@ -108,7 +108,7 @@ export EDITOR=emacsclient
 export GOROOT=/usr/lib/go
 export GOPATH=${HOME}
 export PYTHONPATH=.:..:/home/$USER/src/python-blink1
-export PATH=/usr/local/src/go_appengine:${HOME}/src:${HOME}/src/tools:${HOME}/go/bin:.:$PATH
+export PATH=/usr/local/src/go_appengine:${HOME}/src:${HOME}/src/tools:${HOME}/go/bin:${HOME}/src/xelaie/scripts:.:$PATH
 
 # Include extra Arch aliases.
 source $HOME/.arch_aliases
@@ -118,7 +118,7 @@ source $HOME/.meta_aliases
 export PYTHONDONTWRITEBYTECODE=1
 
 # GPG always wants to know what TTY it's running on. 
-export GPG_TTY=`tty`
+export GPG_TTY=$(tty)
 
 # The next line updates PATH for the Google Cloud SDK.
 source '/usr/local/src/google-cloud-sdk/path.bash.inc'
@@ -130,3 +130,4 @@ export CLOUDSDK_PYTHON=python2
 
 alias sshzero='ssh zero-cloud-1.europe-west1-b.henrik-jonsson'
 alias sshstaging='ssh staging-2.europe-west1-a.exemplary-cycle-688'
+alias sshlive='ssh live-daemon-1.us-central1-f.exemplary-cycle-688'
