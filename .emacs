@@ -1,6 +1,20 @@
-(setq default-tab-width 2) 
-;; What should TAB do?
-;;(global-set-key (kbd "TAB") 'self-insert-command) 
+;; Display tabs as two spaces wide.
+(setq tab-width 2)
+(setq-default tab-width 2)
+
+;; By default, enable indent-tabs-mode. This will be overridden by
+;; smart-tabs-mode enabled languages (below).
+(setq-default indent-tabs-mode t)
+
+(autoload 'smart-tabs-mode "smart-tabs-mode"
+    "Intelligently indent with tabs, align with spaces!")
+(autoload 'smart-tabs-mode-enable "smart-tabs-mode")
+(autoload 'smart-tabs-advice "smart-tabs-mode")
+(autoload 'smart-tabs-insinuate "smart-tabs-mode")
+(smart-tabs-insinuate 'c 'c++ 'java 'javascript 'cperl 'python
+                      'ruby 'nxml)
+
+(smart-tabs-advice html-indent-line html-basic-offset)
 
 (set-default-font "-adobe-courier-medium-r-normal--14-140-75-75-m-90-iso8859-1")
 
