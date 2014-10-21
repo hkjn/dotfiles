@@ -107,8 +107,8 @@ alias mp50="mplayer -af scaletempo -vf dsize=1024:-2 -panscanrange -5 $@"
 export EDITOR=emacsclient
 export GOROOT=/usr/lib/go
 export GOPATH=${HOME}
-export PYTHONPATH=.:..:/home/$USER/src/python-blink1
-export PATH=/usr/local/src/go_appengine:${HOME}/src:${HOME}/src/tools:${HOME}/go/bin:${HOME}/src/xelaie/scripts:.:$PATH
+export PYTHONPATH=.:..:/home/$USER/src/python-blink1:~/src/xelaie/src/py
+export PATH=/usr/local/src/go_appengine:${HOME}/src:${HOME}/src/tools:${HOME}/bin:${HOME}/src/xelaie/scripts:.:$PATH
 
 # Include extra Arch aliases.
 source $HOME/.arch_aliases
@@ -128,6 +128,7 @@ source '/usr/local/src/google-cloud-sdk/completion.bash.inc'
 
 export CLOUDSDK_PYTHON=python2
 
-alias sshzero='ssh zero-cloud-1.europe-west1-b.henrik-jonsson'
-alias sshstaging='ssh staging-2.europe-west1-a.exemplary-cycle-688'
-alias sshlive='ssh live-daemon-1.us-central1-f.exemplary-cycle-688'
+alias sshzero='ssh zero-cloud-1'
+alias sshstaging='ssh staging'
+alias sshlive='ssh live-daemon'
+alias sshmonitoring='ssh monitoring'
