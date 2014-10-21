@@ -116,6 +116,8 @@ channels = (
   # Freenode
   { name = "#archlinux"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#go-nuts"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#google-containers"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#dotcloud"; chatnet = "freenode"; autojoin = "Yes"; },
 
   # OFTC
   { name = "#tor"; chatnet = "OFTC"; autojoin = "Yes"; },
@@ -288,14 +290,14 @@ statusbar = {
   };
 };
 settings = {
-  core = { real_name = "Unknown"; user_name = "zero"; nick = "zero"; };
+  core = { real_name = "Henrik Jonsson"; user_name = "hkjn"; nick = "hkjn"; };
   "fe-text" = { actlist_sort = "refnum"; };
   "fe-common/core" = { autolog = "yes"; };
 };
 ignores = (
   {
     level = "JOINS PARTS QUITS";
-    channels = ( "#archlinux", "#go-nuts", "#tor", "#tails", "#tails-dev" );
+    channels = ( "#archlinux", "#go-nuts", "#tor", "#tails", "#google-containers", "#tails-dev" );
   }
 );
 windows = {
