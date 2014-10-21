@@ -2,6 +2,13 @@
 (setq tab-width 2)
 (setq-default tab-width 2)
 
+;; .. also in python-mode.
+(add-hook 'python-mode-hook
+      (lambda ()
+        (setq indent-tabs-mode t)
+        (setq tab-width 2)
+        (setq python-indent 2)))
+
 ;; By default, enable indent-tabs-mode. This will be overridden by
 ;; smart-tabs-mode enabled languages (below).
 (setq-default indent-tabs-mode t)
@@ -56,9 +63,10 @@
 ;; TODO(hkjn): Concat with user-login-name.
 (add-to-list 'load-path "/home/zero/src/emacs")
 
-;; We want go-mode, and gofmt hook.
+;; We want go-mode, and goimports + gofmt hook.
+(setq gofmt-command "goimports")
 (require 'go-mode-load)
-(add-hook 'before-save-hook #'gofmt-before-save)
+(add-hook 'before-save-hook 'gofmt-before-save)
 
 ;; Use html-mode for .tmpl files.
 (add-to-list 'auto-mode-alist '("\\.tmpl\\'" . html-mode))
