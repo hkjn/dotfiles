@@ -112,7 +112,6 @@ export PATH=/usr/local/src/go_appengine:${HOME}/src:${HOME}/src/tools:${HOME}/bi
 
 # Include extra Arch aliases.
 source $HOME/.arch_aliases
-source $HOME/.meta_aliases
 
 # Don't scatter __pycache__ directories all over the place.
 export PYTHONDONTWRITEBYTECODE=1
