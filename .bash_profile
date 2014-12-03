@@ -110,9 +110,6 @@ export GOPATH=${HOME}
 export PYTHONPATH=.:..:/home/$USER/src/python-blink1:~/src/xelaie/src/py
 export PATH=/usr/local/src/go_appengine:${HOME}/src:${HOME}/src/tools:${HOME}/bin:${HOME}/src/xelaie/scripts:.:$PATH
 
-# Include extra Arch aliases.
-source $HOME/.arch_aliases
-
 # Don't scatter __pycache__ directories all over the place.
 export PYTHONDONTWRITEBYTECODE=1
 
