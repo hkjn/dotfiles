@@ -129,6 +129,3 @@ source '/usr/local/src/google-cloud-sdk/completion.bash.inc'
 export CLOUDSDK_PYTHON=python2
 
 alias sshzero='ssh zero-cloud-1'
-alias sshstaging='ssh staging'
-alias sshlive='ssh live-daemon'
-alias sshmonitoring='ssh monitoring'
