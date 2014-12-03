@@ -120,12 +120,12 @@ export PYTHONDONTWRITEBYTECODE=1
 # GPG always wants to know what TTY it's running on. 
 export GPG_TTY=$(tty)
 
-# The next line updates PATH for the Google Cloud SDK.
-source '/usr/local/src/google-cloud-sdk/path.bash.inc'
-
-# The next line enables bash completion for gcloud.
-source '/usr/local/src/google-cloud-sdk/completion.bash.inc'
-
-export CLOUDSDK_PYTHON=python2
+if [ -f /usr/local/src/google-cloud-sdk/path.bash.inc ]; then
+  # The next line updates PATH for the Google Cloud SDK.
+  source '/usr/local/src/google-cloud-sdk/path.bash.inc'
+  # The next line enables bash completion for gcloud.
+  source '/usr/local/src/google-cloud-sdk/completion.bash.inc'
+  export CLOUDSDK_PYTHON=python2
+fi
 
 alias sshzero='ssh zero-cloud-1'
