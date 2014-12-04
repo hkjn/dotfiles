@@ -118,6 +118,8 @@ channels = (
   { name = "#go-nuts"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#google-containers"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#dotcloud"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#slatestarcodex"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#lesswrong"; chatnet = "freenode"; autojoin = "Yes"; },
 
   # OFTC
   { name = "#tor"; chatnet = "OFTC"; autojoin = "Yes"; },
