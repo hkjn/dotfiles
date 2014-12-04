@@ -299,7 +299,7 @@ settings = {
 ignores = (
   {
     level = "JOINS PARTS QUITS";
-    channels = ( "#archlinux", "#go-nuts", "#google-containers", "#dotcloud", "#tor", "#tails", "#tails-dev");
+    channels = ( "#archlinux", "#go-nuts", "#google-containers", "#dotcloud", "#tor", "#tails", "#tails-dev", "#lesswrong");
   }
 );
 windows = {
