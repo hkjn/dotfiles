@@ -126,3 +126,4 @@ fi
 
 alias sshzero='ssh zero-cloud-1'
 alias alertnotify='"echo %s" | mail -s "alertnotify from ${HOST}" me@hkjn.me'
+
