@@ -83,13 +83,16 @@ if [ -x /usr/bin/dircolors ]; then
     alias ls='ls --color=auto'
 fi
 
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
+
+alias pp="git pull && git push"
+alias gdc="git diff --cached"
+alias gs="git status"
 
 alias e="emacsclient -nw $1"
 alias ec="e /$HOME/.bash_profile"
@@ -100,8 +103,6 @@ alias tl="tmux list-sessions"
 alias tc="tmux new -s $1"
 alias ta="tmux attach -d -t $1"
 alias ll='ls -hsAl'
-alias pp="git pull && git push"
-alias gdc="git diff --cached"
 alias mp="mplayer -af scaletempo $@"
 alias mp50="mplayer -af scaletempo -fs -panscanrange -5 $@"
 
