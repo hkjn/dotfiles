@@ -102,7 +102,7 @@ alias ta="tmux attach -d -t $1"
 alias ll='ls -hsAl'
 alias pp="git pull && git push"
 alias mp="mplayer -af scaletempo $@"
-alias mp50="mplayer -af scaletempo -vf dsize=1024:-2 -panscanrange -5 $@"
+alias mp50="mplayer -af scaletempo -fs -panscanrange -5 $@"
 
 export EDITOR=emacsclient
 export GOROOT=/usr/lib/go
