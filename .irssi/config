@@ -106,17 +106,18 @@ chatnets = {
     max_whois = "30";
   };
   SILC = { type = "SILC"; };
-  freenode = {
-    type = "IRC";
-    nick = "hkjn";
-  };
+  freenode = { type = "IRC"; nick = "hkjn"; };
 };
 
 channels = (
   # Freenode
   { name = "#archlinux"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#go-nuts"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#google-containers"; chatnet = "freenode"; autojoin = "Yes"; },
+  {
+    name = "#google-containers";
+    chatnet = "freenode";
+    autojoin = "Yes";
+  },
   { name = "#dotcloud"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#slatestarcodex"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#lesswrong"; chatnet = "freenode"; autojoin = "Yes"; },
@@ -292,15 +293,30 @@ statusbar = {
   };
 };
 settings = {
-  core = { real_name = "Henrik Jonsson"; user_name = "hkjn"; nick = "hkjn"; };
+  core = {
+    real_name = "Henrik Jonsson";
+    user_name = "hkjn";
+    nick = "hkjn";
+  };
   "fe-text" = { actlist_sort = "refnum"; };
   "fe-common/core" = { autolog = "yes"; };
 };
 ignores = (
   {
     level = "JOINS PARTS QUITS";
-    channels = ( "#archlinux", "#go-nuts", "#google-containers", "#dotcloud", "#tor", "#tails", "#tails-dev", "#lesswrong");
-  }
+    channels = (
+      "#archlinux",
+      "#docker",      
+      "#go-nuts",
+      "#google-containers",
+      "#dotcloud",
+      "#lesswrong",
+      "#tor",
+      "#tails",
+      "#tails-dev",
+    );
+  },
+  { mask = "Penysman"; level = "ALL"; }
 );
 windows = {
   1 = { immortal = "yes"; name = "(status)"; level = "ALL"; };
