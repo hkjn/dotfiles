@@ -306,7 +306,8 @@ ignores = (
     level = "JOINS PARTS QUITS";
     channels = (
       "#archlinux",
-      "#docker",      
+      "#coreos",
+      "#docker",
       "#go-nuts",
       "#google-containers",
       "#dotcloud",
