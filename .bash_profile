@@ -109,7 +109,7 @@ alias mp50="mplayer -af scaletempo -fs -panscanrange -5 $@"
 export EDITOR=emacsclient
 export GOROOT=/usr/lib/go
 export GOPATH=${HOME}
-export PYTHONPATH=.:..:/home/$USER/src/python-blink1
+export PYTHONPATH=.:..
 export PATH=/usr/local/src/go_appengine:${HOME}/src:${HOME}/src/tools:${HOME}/bin:.:$PATH
 
 # Don't scatter __pycache__ directories all over the place.
@@ -127,5 +127,4 @@ if [ -f /usr/local/src/google-cloud-sdk/path.bash.inc ]; then
 fi
 
 alias sshzero='ssh zero-cloud-1'
-alias alertnotify='"echo %s" | mail -s "alertnotify from ${HOST}" me@hkjn.me'
 
