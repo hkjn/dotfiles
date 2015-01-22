@@ -112,6 +112,8 @@ chatnets = {
 channels = (
   # Freenode
   { name = "#archlinux"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#coreos"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#datadog"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#go-nuts"; chatnet = "freenode"; autojoin = "Yes"; },
   {
     name = "#google-containers";
@@ -307,6 +309,7 @@ ignores = (
     channels = (
       "#archlinux",
       "#coreos",
+      "#datadog",
       "#docker",
       "#go-nuts",
       "#google-containers",
