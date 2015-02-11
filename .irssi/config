@@ -114,13 +114,14 @@ channels = (
   { name = "#archlinux"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#coreos"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#datadog"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#docker"; chatnet = "freenode"; autojoin = "Yes"; },  
+  { name = "#emacs"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#go-nuts"; chatnet = "freenode"; autojoin = "Yes"; },
   {
     name = "#google-containers";
     chatnet = "freenode";
     autojoin = "Yes";
   },
-  { name = "#dotcloud"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#slatestarcodex"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#lesswrong"; chatnet = "freenode"; autojoin = "Yes"; },
 
@@ -311,9 +312,9 @@ ignores = (
       "#coreos",
       "#datadog",
       "#docker",
+      "#emacs",
       "#go-nuts",
       "#google-containers",
-      "#dotcloud",
       "#lesswrong",
       "#tor",
       "#tails",
