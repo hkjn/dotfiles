@@ -124,10 +124,10 @@ alias sshzero='ssh zero-cloud-1'
 
 if [ -d ~/google-cloud-sdk ]; then
 		# The next line updates PATH for the Google Cloud SDK.
-		source "~/google-cloud-sdk/path.bash.inc"
+		source "$HOME/google-cloud-sdk/path.bash.inc"
 
 		# The next line enables bash completion for gcloud.
-		source "/home/zero/google-cloud-sdk/completion.bash.inc"
+		source "$HOME/google-cloud-sdk/completion.bash.inc"
 fi
 
 # Allow current user to connect to X11 socket from any host; required
