@@ -111,10 +111,10 @@ If the file is emacs lisp, run the byte compiled version if exist."
 (global-set-key (kbd "<f9>") 'xah-run-current-file)
 
 ;; We want go-mode, and goimports + gofmt hook.
-(setq gofmt-command "goimports")
-(add-to-list 'load-path "/home/zero/src/emacs/")
+(add-to-list 'load-path "~/.emacs.d/go-mode")
 (require 'go-mode-autoloads)
-(add-hook 'before-save-hook 'gofmt-before-save)
+(setq gofmt-command "goimports")
+(add-hook 'before-save-hook #'gofmt-before-save)
 
 ;; ELPA packages; install interactively with M-x package-list-packages.
 (require 'package)
