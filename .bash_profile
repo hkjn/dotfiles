@@ -118,13 +118,21 @@ export PYTHONDONTWRITEBYTECODE=1
 # GPG always wants to know what TTY it's running on. 
 export GPG_TTY=$(tty)
 
-if [ -f /usr/local/src/google-cloud-sdk/path.bash.inc ]; then
-  # The next line updates PATH for the Google Cloud SDK.
-  source '/usr/local/src/google-cloud-sdk/path.bash.inc'
-  # The next line enables bash completion for gcloud.
-  source '/usr/local/src/google-cloud-sdk/completion.bash.inc'
-  export CLOUDSDK_PYTHON=python2
-fi
+export CLOUDSDK_PYTHON=python2
 
 alias sshzero='ssh zero-cloud-1'
 
+if [ -d ~/google-cloud-sdk ]; then
+		# The next line updates PATH for the Google Cloud SDK.
+		source "~/google-cloud-sdk/path.bash.inc"
+
+		# The next line enables bash completion for gcloud.
+		source "/home/zero/google-cloud-sdk/completion.bash.inc"
+fi
+
+# Allow current user to connect to X11 socket from any host; required
+# to run graphical Docker containers.
+if which xhost >/dev/null && [ ! -z $DISPLAY ] ; then
+		xhost +si:localuser:$USER >/dev/null
+		xhost +si:localuser:root >/dev/null
+fi
