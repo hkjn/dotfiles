@@ -132,7 +132,7 @@ fi
 
 # Allow current user to connect to X11 socket from any host; required
 # to run graphical Docker containers.
-if which xhost >/dev/null && [ ! -z $DISPLAY ] ; then
+if which xhost > /dev/null 2>&1 && [ ! -z $DISPLAY ] ; then
 		xhost +si:localuser:$USER >/dev/null
 		xhost +si:localuser:root >/dev/null
 fi
