@@ -96,7 +96,7 @@ alias gs="git status"
 
 alias e="emacsclient -nw $1"
 alias ec="e /$HOME/.bash_profile"
-alias rf="source $HOME/.bash_profile"
+alias rf="[ -e $HOME/.bash_profile ] && source $HOME/.bash_profile || source $HOME/.bashrc"
 alias tm="tmux attach -d -t main"
 alias tw="tmux attach -d -t work"
 alias tl="tmux list-sessions"
@@ -105,6 +105,7 @@ alias ta="tmux attach -d -t $1"
 alias ll='ls -hsAl'
 alias mp="mplayer -af scaletempo $@"
 alias mp50="mplayer -af scaletempo -fs -panscanrange -5 $@"
+alias xclip="xclip -selection c"
 
 export EDITOR=emacsclient
 export GOROOT=/usr/lib/go
@@ -136,3 +137,4 @@ if which xhost > /dev/null 2>&1 && [ ! -z $DISPLAY ] ; then
 		xhost +si:localuser:$USER >/dev/null
 		xhost +si:localuser:root >/dev/null
 fi
+
