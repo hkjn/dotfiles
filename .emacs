@@ -2,12 +2,27 @@
 (setq tab-width 2)
 (setq-default tab-width 2)
 
-;; .. also in python-mode.
+;; Use two tabs in python-mode as well, displayed with width two.
 (add-hook 'python-mode-hook
-      (lambda ()
-        (setq indent-tabs-mode t)
-        (setq tab-width 2)
-        (setq python-indent 2)))
+					(lambda ()
+						(setq indent-tabs-mode t)
+						(setq tab-width 2)
+						(setq python-indent 2)))
+
+;; Use two tabs in js-mode as well, displayed with width two.
+(add-hook 'js-mode-hook
+					(lambda ()
+						(setq indent-tabs-mode t)
+						(setq tab-width 2)
+						(setq js-indent-level 2)))
+
+;; Use two tabs in java-mode as well, displayed with width two.
+(add-hook 'java-mode-hook
+					(lambda ()
+						(setq indent-tabs-mode t)
+						(setq tab-width 2)
+						(setq c-basic-offset 2)
+						(setq whitespace-line-column 100)))
 
 (set-default-font "-adobe-courier-medium-r-normal--14-140-75-75-m-90-iso8859-1")
 
