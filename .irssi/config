@@ -117,11 +117,6 @@ channels = (
   { name = "#docker"; chatnet = "freenode"; autojoin = "Yes"; },  
   { name = "#emacs"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#go-nuts"; chatnet = "freenode"; autojoin = "Yes"; },
-  {
-    name = "#google-containers";
-    chatnet = "freenode";
-    autojoin = "Yes";
-  },
   { name = "#slatestarcodex"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#lesswrong"; chatnet = "freenode"; autojoin = "Yes"; },
 
@@ -314,7 +309,6 @@ ignores = (
       "#docker",
       "#emacs",
       "#go-nuts",
-      "#google-containers",
       "#lesswrong",
       "#tor",
       "#tails",
