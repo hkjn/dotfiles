@@ -123,7 +123,6 @@ channels = (
   # OFTC
   { name = "#tor"; chatnet = "OFTC"; autojoin = "Yes"; },
   { name = "#tails"; chatnet = "OFTC"; autojoin = "Yes"; },
-  { name = "#tails-dev"; chatnet = "OFTC"; autojoin = "Yes"; },
 
   { name = "#irssi"; chatnet = "ircnet"; autojoin = "No"; },
   { name = "silc"; chatnet = "silc"; autojoin = "No"; }
@@ -312,7 +311,6 @@ ignores = (
       "#lesswrong",
       "#tor",
       "#tails",
-      "#tails-dev",
     );
   },
   { mask = "Penysman"; level = "ALL"; }
