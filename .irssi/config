@@ -117,18 +117,12 @@ channels = (
   { name = "#docker"; chatnet = "freenode"; autojoin = "Yes"; },  
   { name = "#emacs"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#go-nuts"; chatnet = "freenode"; autojoin = "Yes"; },
-  {
-    name = "#google-containers";
-    chatnet = "freenode";
-    autojoin = "Yes";
-  },
   { name = "#slatestarcodex"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#lesswrong"; chatnet = "freenode"; autojoin = "Yes"; },
 
   # OFTC
   { name = "#tor"; chatnet = "OFTC"; autojoin = "Yes"; },
   { name = "#tails"; chatnet = "OFTC"; autojoin = "Yes"; },
-  { name = "#tails-dev"; chatnet = "OFTC"; autojoin = "Yes"; },
 
   { name = "#irssi"; chatnet = "ircnet"; autojoin = "No"; },
   { name = "silc"; chatnet = "silc"; autojoin = "No"; }
@@ -314,11 +308,9 @@ ignores = (
       "#docker",
       "#emacs",
       "#go-nuts",
-      "#google-containers",
       "#lesswrong",
       "#tor",
       "#tails",
-      "#tails-dev",
     );
   },
   { mask = "Penysman"; level = "ALL"; }
