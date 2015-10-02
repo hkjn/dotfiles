@@ -24,6 +24,13 @@
 						(setq c-basic-offset 2)
 						(setq whitespace-line-column 100)))
 
+;; Use two tabs in sh-mode as well, displayed with width two.
+(add-hook 'sh-mode-hook
+					(lambda ()
+						(setq indent-tabs-mode t)
+						(setq sh-basic-offset 2)
+						(setq sh-indentation 2)))
+
 (set-default-font "-adobe-courier-medium-r-normal--14-140-75-75-m-90-iso8859-1")
 
 ;; Put autosave files (ie #foo#) in one place, *not*
