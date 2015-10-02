@@ -108,8 +108,14 @@ alias shlogs="less ${HOME}/.shell_logs/${HOSTNAME}"
 export EDITOR=emacsclient
 export GOROOT=/usr/lib/go
 export GOPATH=${HOME}
-export PYTHONPATH=.:..
+# Enable support for vendor/ directories without import path rewriting:
+# https://golang.org/s/go15vendor
+#
+# This environment variable can be dropped once the vendor support is
+# the default setting (expected to be Go 1.6).
+export GO15VENDOREXPERIMENT=1
 export PATH=/usr/local/src/go_appengine:${HOME}/src:${HOME}/src/tools:${HOME}/bin:.:$PATH
+export PYTHONPATH=.:..
 
 # Don't scatter __pycache__ directories all over the place.
 export PYTHONDONTWRITEBYTECODE=1
