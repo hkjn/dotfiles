@@ -86,16 +86,17 @@
 	(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
 
+; TODO(hkjn): Re-enable smart-tabs-mode; load below doesn't work in OS X El Capitan,
+; despite the package being installed with M-x list-packages.
 ;; By default, enable indent-tabs-mode. This will be overridden by
 ;; smart-tabs-mode enabled languages (below).
-(setq-default indent-tabs-mode t)
+; (setq-default indent-tabs-mode t)
 
-(autoload 'smart-tabs-mode "smart-tabs-mode"
-	"Intelligently indent with tabs, align with spaces!")
- (autoload 'smart-tabs-mode-enable "smart-tabs-mode")
- (autoload 'smart-tabs-advice "smart-tabs-mode")
- (autoload 'smart-tabs-insinuate "smart-tabs-mode")
- (smart-tabs-insinuate 'c 'c++ 'java 'javascript 'cperl 'python
-                      'ruby 'nxml)
-(smart-tabs-advice html-indent-line html-basic-offset)
-
+; (autoload 'smart-tabs-mode "smart-tabs-mode"
+;	"Intelligently indent with tabs, align with spaces!")
+; (autoload 'smart-tabs-mode-enable "smart-tabs-mode")
+; (autoload 'smart-tabs-advice "smart-tabs-mode")
+; (autoload 'smart-tabs-insinuate "smart-tabs-mode")
+; (smart-tabs-insinuate 'c 'c++ 'java 'javascript 'cperl 'python
+;                      'ruby 'nxml)
+;(smart-tabs-advice html-indent-line html-basic-offset)
