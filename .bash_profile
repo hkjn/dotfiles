@@ -68,11 +68,9 @@ xterm*|rxvt*)
 esac
 
 # Pull in useful functions.
-if [ -e ${HOME}/src/bash_funcs.sh ]; then
-  source ${HOME}/src/bash_funcs.sh
+if [ -e ${HOME}/src/github.com/hkjn/scripts/bash_funcs.sh ]; then
+  source ${HOME}/src/github.com/hkjn/scripts/bash_funcs.sh
 fi
-
-# Alias definitions.
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -92,7 +90,7 @@ alias gdc="git diff --cached"
 alias gs="git status"
 
 alias e="emacsclient -nw $1"
-alias ec="e /$HOME/.bash_profile"
+alias ec="e $HOME/.bash_profile"
 alias rf="[ -e $HOME/.bash_profile ] && source $HOME/.bash_profile || source $HOME/.bashrc"
 alias tm="tmux attach -d -t main"
 alias tw="tmux attach -d -t work"
@@ -106,7 +104,6 @@ alias xclip="xclip -selection c"
 alias shlogs="less ${HOME}/.shell_logs/${HOSTNAME}"
 
 export EDITOR=emacsclient
-export GOROOT=/usr/lib/go
 export GOPATH=${HOME}
 # Enable support for vendor/ directories without import path rewriting:
 # https://golang.org/s/go15vendor
@@ -114,7 +111,7 @@ export GOPATH=${HOME}
 # This environment variable can be dropped once the vendor support is
 # the default setting (expected to be Go 1.6).
 export GO15VENDOREXPERIMENT=1
-export PATH=/usr/local/src/go_appengine:${HOME}/src:${HOME}/src/tools:${HOME}/bin:.:$PATH
+export PATH=/usr/local/homebrew/bin:${HOME}/src:${HOME}/src/tools:${HOME}/bin:.:$PATH
 export PYTHONPATH=.:..
 
 # Don't scatter __pycache__ directories all over the place.
@@ -124,8 +121,6 @@ export PYTHONDONTWRITEBYTECODE=1
 export GPG_TTY=$(tty)
 
 export CLOUDSDK_PYTHON=python2
-
-alias sshzero='ssh zero-cloud-1'
 
 if [ -d ~/google-cloud-sdk ]; then
 		# The next line updates PATH for the Google Cloud SDK.
@@ -141,4 +136,3 @@ if which xhost > /dev/null 2>&1 && [ ! -z $DISPLAY ] ; then
 		xhost +si:localuser:$USER >/dev/null
 		xhost +si:localuser:root >/dev/null
 fi
-
