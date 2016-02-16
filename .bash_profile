@@ -131,8 +131,10 @@ if [ -d ~/google-cloud-sdk ]; then
 fi
 
 # Allow current user to connect to X11 socket from any host; required
-# to run graphical Docker containers.
-if which xhost > /dev/null 2>&1 && [ ! -z $DISPLAY ] ; then
+# to run graphical Docker containers. But not on OS X, since even
+# though xhost exists, on at least OS X Mavericks it just stalls
+# indefinitely if invoked, preventing new bash sessions.
+if which xhost > /dev/null 2>&1 && [ ! -z $DISPLAY ] && [ $(uname) != "Darwin" ]; then
 		xhost +si:localuser:$USER >/dev/null
 		xhost +si:localuser:root >/dev/null
 fi
