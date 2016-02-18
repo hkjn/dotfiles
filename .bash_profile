@@ -68,8 +68,11 @@ xterm*|rxvt*)
 esac
 
 # Pull in useful functions.
-if [ -e ${HOME}/src/github.com/hkjn/scripts/bash_funcs.sh ]; then
-  source ${HOME}/src/github.com/hkjn/scripts/bash_funcs.sh
+BASH_FUNCS="$HOME/src/hkjn.me/scripts/bash_funcs.sh"
+if [ -e "$BASH_FUNCS" ]; then
+  source "$BASH_FUNCS"
+else
+	echo "No '$BASH_FUNCS' found. Try 'go get hkjn.me/scripts'?"
 fi
 
 # enable color support of ls and also add handy aliases
