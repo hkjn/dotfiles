@@ -111,7 +111,7 @@ export GOPATH=${HOME}
 # This environment variable can be dropped once the vendor support is
 # the default setting (expected to be Go 1.6).
 export GO15VENDOREXPERIMENT=1
-export PATH=/usr/local/homebrew/bin:${HOME}/src:${HOME}/src/tools:${HOME}/bin:.:$PATH
+export PATH=/usr/local/homebrew/bin:/usr/local/homebrew/sbin:${HOME}/src:${HOME}/src/tools:${HOME}/bin:.:$PATH
 export PYTHONPATH=.:..
 
 # Don't scatter __pycache__ directories all over the place.
