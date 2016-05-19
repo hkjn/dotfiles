@@ -33,40 +33,27 @@
 
 (set-default-font "-adobe-courier-medium-r-normal--14-140-75-75-m-90-iso8859-1")
 
-;; Put autosave files (ie #foo#) in one place, *not*
-;; scattered all over the file system!
-(defvar autosave-dir
- (concat "/tmp/emacs_autosaves/" (user-login-name) "/"))
+;; Sets the path for backup files generated automatically by emacs (represented
+;; by the filename with a tilde appended to the end of it.)
 
+;; (source: http://www.skrakes.com/?p=146)
+
+(defvar backup-dir "~/.emacs.d/backups/")
+(defvar autosave-dir "~/.emacs.d/autosaves/")
+
+;; Create backup-directory and autosave-directory if they don't already exist
+
+(make-directory backup-dir t)
 (make-directory autosave-dir t)
 
-(defun auto-save-file-name-p (filename)
-  (string-match "^#.*#$" (file-name-nondirectory filename)))
+(setq backup-directory-alist `(("." . ,backup-dir)))
+(setq auto-save-file-name-trnsforms `(("." ,autosave-dir t)))
+(setq backup-by-copying t)
 
-(defun make-auto-save-file-name ()
-  (concat autosave-dir
-   (if buffer-file-name
-      (concat "#" (file-name-nondirectory buffer-file-name) "#")
-    (expand-file-name
-     (concat "#%" (buffer-name) "#")))))
-
-;; Put backup files (ie foo~) in one place too. (The backup-directory-alist
-;; list contains regexp=>directory mappings; filenames matching a regexp are
-;; backed up in the corresponding directory. Emacs will mkdir it if necessary.)
-(defvar backup-dir (concat "/tmp/emacs_backups/" (user-login-name) "/"))
-(setq backup-directory-alist (list (cons "." backup-dir)))
-
-(make-directory autosave-dir t)
-
-(defun auto-save-file-name-p (filename)
-  (string-match "^#.*#$" (file-name-nondirectory filename)))
-
-(defun make-auto-save-file-name ()
-  (concat autosave-dir
-   (if buffer-file-name
-      (concat "#" (file-name-nondirectory buffer-file-name) "#")
-    (expand-file-name
-     (concat "#%" (buffer-name) "#")))))
+(setq delete-old-versions t
+			kept-new-versions 6
+			kept-old-versions 2
+			version-control t)
 
 ;; Use html-mode for .tmpl files.
 (add-to-list 'auto-mode-alist '("\\.tmpl\\'" . html-mode))
