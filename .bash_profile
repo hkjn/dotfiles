@@ -66,8 +66,6 @@ xterm*|rxvt*)
 esac
 
 # Pull in useful functions.
-if [ -e ${HOME}/src/hkjn.me/scripts/bash_funcs.sh ]; then
-  source ${HOME}/src/hkjn.me/scripts/bash_funcs.sh
 BASH_FUNCS="$HOME/src/hkjn.me/scripts/bash_funcs.sh"
 if [ -e "$BASH_FUNCS" ]; then
   source "$BASH_FUNCS"
