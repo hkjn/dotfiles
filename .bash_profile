@@ -21,9 +21,7 @@ HISTFILESIZE=2000
 shopt -s checkwinsize
 
 # set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
+[ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ] && debian_chroot=$(cat /etc/debian_chroot)
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
@@ -44,7 +42,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 # gitBranch echoes the current git branch.
-function gitBranch() {
+gitBranch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
 
@@ -70,6 +68,11 @@ esac
 # Pull in useful functions.
 if [ -e ${HOME}/src/hkjn.me/scripts/bash_funcs.sh ]; then
   source ${HOME}/src/hkjn.me/scripts/bash_funcs.sh
+BASH_FUNCS="$HOME/src/hkjn.me/scripts/bash_funcs.sh"
+if [ -e "$BASH_FUNCS" ]; then
+  source "$BASH_FUNCS"
+else
+	echo "No '$BASH_FUNCS' found. Try 'go get hkjn.me/scripts'?"
 fi
 
 # enable color support of ls and also add handy aliases
@@ -81,9 +84,7 @@ fi
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-fi
+[ -f /etc/bash_completion ] && source /etc/bash_completion
 
 alias pp="git pull && git push"
 alias gdc="git diff --cached"
@@ -92,9 +93,6 @@ alias gs="git status"
 alias e="emacsclient -nw $1"
 alias ec="e $HOME/.bash_profile"
 alias rf="[ -e $HOME/.bash_profile ] && source $HOME/.bash_profile || source $HOME/.bashrc"
-alias tm="tmux attach -d -t main"
-alias tw="tmux attach -d -t work"
-alias tl="tmux list-sessions"
 alias tc="tmux new -s $1"
 alias ta="tmux attach -d -t $1"
 alias ll='ls -hsAl'
@@ -111,7 +109,7 @@ export GOPATH=${HOME}
 # This environment variable can be dropped once the vendor support is
 # the default setting (expected to be Go 1.6).
 export GO15VENDOREXPERIMENT=1
-export PATH=/usr/local/homebrew/bin:/usr/local/homebrew/sbin:/usr/local/homebrew/Cellar/coreutils/8.25/libexec/gnubin/:${HOME}/src:${HOME}/src/tools:${HOME}/bin:.:$PATH
+export PATH=/usr/local/homebrew/bin:/usr/local/homebrew/sbin:/usr/local/homebrew/Cellar/coreutils/8.25/libexec/gnubin/:${GOPATH}/src/hkjn.me/scripts:${GOPATH}/src/hkjn.me/scripts/tools:${HOME}/bin:.:$PATH
 export PYTHONPATH=.:..
 
 # Don't scatter __pycache__ directories all over the place.
