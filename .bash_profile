@@ -68,8 +68,8 @@ xterm*|rxvt*)
 esac
 
 # Pull in useful functions.
-if [ -e ${HOME}/src/github.com/hkjn/scripts/bash_funcs.sh ]; then
-  source ${HOME}/src/github.com/hkjn/scripts/bash_funcs.sh
+if [ -e ${HOME}/src/hkjn.me/scripts/bash_funcs.sh ]; then
+  source ${HOME}/src/hkjn.me/scripts/bash_funcs.sh
 fi
 
 # enable color support of ls and also add handy aliases
@@ -111,7 +111,7 @@ export GOPATH=${HOME}
 # This environment variable can be dropped once the vendor support is
 # the default setting (expected to be Go 1.6).
 export GO15VENDOREXPERIMENT=1
-export PATH=/usr/local/homebrew/bin:/usr/local/homebrew/sbin:${HOME}/src:${HOME}/src/tools:${HOME}/bin:.:$PATH
+export PATH=/usr/local/homebrew/bin:/usr/local/homebrew/sbin:/usr/local/homebrew/Cellar/coreutils/8.25/libexec/gnubin/:${HOME}/src:${HOME}/src/tools:${HOME}/bin:.:$PATH
 export PYTHONPATH=.:..
 
 # Don't scatter __pycache__ directories all over the place.
