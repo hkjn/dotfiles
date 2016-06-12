@@ -24,10 +24,10 @@
 						(setq c-basic-offset 2)
 						(setq whitespace-line-column 100)))
 
-;; Use two tabs in sh-mode as well, displayed with width two.
+;; Use two spaces in sh-mode.
 (add-hook 'sh-mode-hook
 					(lambda ()
-						(setq indent-tabs-mode t)
+						(setq indent-tabs-mode nil)
 						(setq sh-basic-offset 2)
 						(setq sh-indentation 2)))
 
