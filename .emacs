@@ -2,12 +2,12 @@
 (setq tab-width 2)
 (setq-default tab-width 2)
 
-;; Use two tabs in python-mode as well, displayed with width two.
+;; Use four spaces in python-mode.
 (add-hook 'python-mode-hook
 					(lambda ()
-						(setq indent-tabs-mode t)
-						(setq tab-width 2)
-						(setq python-indent 2)))
+						(setq indent-tabs-mode nil)
+						(setq tab-width 4)
+						(setq python-indent 4)))
 
 ;; Use two tabs in js-mode as well, displayed with width two.
 (add-hook 'js-mode-hook
