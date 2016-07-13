@@ -9,20 +9,27 @@
 						(setq tab-width 4)
 						(setq python-indent 4)))
 
-;; Use two tabs in js-mode as well, displayed with width two.
+;; Use two tabs in js-mode, displayed with width two.
 (add-hook 'js-mode-hook
 					(lambda ()
 						(setq indent-tabs-mode t)
 						(setq tab-width 2)
 						(setq js-indent-level 2)))
 
-;; Use two tabs in java-mode as well, displayed with width two.
+;; Use four spaces in java-mode as well.
 (add-hook 'java-mode-hook
 					(lambda ()
-						(setq indent-tabs-mode t)
-						(setq tab-width 2)
-						(setq c-basic-offset 2)
+						(setq indent-tabs-mode nil)
+						(setq tab-width 4)
+						(setq c-basic-offset 4)
 						(setq whitespace-line-column 100)))
+
+;; Use two spaces in html-mode.
+(add-hook 'html-mode-hook
+					(lambda ()
+						(setq indent-tabs-mode nil)
+						(setq sh-basic-offset 2)
+						(setq sh-indentation 2)))
 
 ;; Use two spaces in sh-mode.
 (add-hook 'sh-mode-hook
