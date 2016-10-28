@@ -41,13 +41,34 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-# gitBranch echoes the current git branch.
+# echo the current git branch
 gitBranch() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+  local white='\[\033[01;11m\]'
+  local normal='\[\033[00m\]'
+  local br=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
+  if [ "$br" ]; then
+    echo "${white}▪ $br ▪${normal}"
+  else
+    echo "▫"
+  fi
+}
+
+# echo user and host
+userAndHost() {
+  local lgreen='\[\033[01;32m\]'
+  local normal='\[\033[00m\]'
+  echo "${lgreen}\u@\h${normal}"
+}
+
+# echo current working directory
+workDir() {
+  local lblue='\[\033[01;34m\]'
+  local normal='\[\033[00m\]'
+  echo "${lblue}\w${normal}"
 }
 
 if [ "$color_prompt" = yes ]; then
-    PS1="${debian_chroot:+($debian_chroot)}\[\033[01;11m\](\$(gitBranch)) \[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
+    PS1="${debian_chroot:+($debian_chroot)} $(gitBranch) $(userAndHost) ▪ $(workDir) ▪\n\$ "
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
