@@ -67,8 +67,15 @@ workDir() {
   echo "${lblue}\w${normal}"
 }
 
+# echo prompt character
+prompt() {
+  local lcyan='\[\033[1;36m\]'
+  local normal='\[\033[00m\]'
+  echo "${lcyan}► ${normal}"
+}
+
 if [ "$color_prompt" = yes ]; then
-    PS1="${debian_chroot:+($debian_chroot)} $(gitBranch) $(userAndHost) ▪ $(workDir) ▪\n\$ "
+    PS1="${debian_chroot:+($debian_chroot)}$(gitBranch) $(userAndHost) ▪ $(workDir) ▪\n$(prompt)"
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
