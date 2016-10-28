@@ -20,25 +20,12 @@ HISTFILESIZE=2000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# set variable identifying the chroot you work in (used in the prompt below)
-[ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ] && debian_chroot=$(cat /etc/debian_chroot)
-
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color) color_prompt=yes;;
-esac
-
-force_color_prompt=yes
-
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
+color_prompt=yes
+if ! [ -x /usr/bin/tput ] || ! tput setaf 1 >&/dev/null; then
+   # We have no color support; not compliant with Ecma-48
+   # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+   # a case would tend to support setf rather than setaf.)
+   color_prompt=
 fi
 
 # echo the current git branch
@@ -61,28 +48,32 @@ workDir() {
   echo "${lblue}\w${normal}"
 }
 
-# echo prompt character
-prompt() {
-  local lcyan='\[\033[1;36m\]'
-  local normal='\[\033[00m\]'
-  echo "${lcyan}► ${normal}"
-}
+PROMPT_COMMAND=__prompt_command
 
-# Set the PS1 variable to define the prompt
-setPS1() {
+# Set prompt according to exit status and other info.
+__prompt_command() {
+  local EXIT="$?"
+
+  local prompt="►"
+
   local lwhite='\[\033[01;11m\]'
   local dgray='\[\033[1;30m\]'
+  local red='\[\e[0;31m\]'
+  local normal='\[\033[00m\]'
+  local lcyan='\[\033[1;36m\]'
+  local pcolor="$lcyan"
   local normal='\[\033[00m\]'
 
-  if [ "$color_prompt" = yes ]; then
-    PS1="${debian_chroot:+($debian_chroot)}${lwhite}\$(gitBranch)${dgray}木${normal}$(userAndHost)$(workDir)\n$(prompt)"
-  else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+  if [ $EXIT != 0 ]; then
+    pcolor="$red"
   fi
-  unset color_prompt force_color_prompt
+  echo "color_prompt=$color_prompt"
+  if [ "$color_prompt" = yes ]; then
+    PS1="${lwhite}\$(gitBranch)${dgray}木${normal}$(userAndHost)$(workDir) \n${pcolor}${prompt}$normal "
+  else
+    PS1="\$(gitBranch)木$(userAndHost)$(workDir) \n${prompt}"
+  fi
 }
-
-setPS1
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
