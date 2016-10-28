@@ -8,3 +8,5 @@
 	editor = emacsclient -t -a=\\\"\\\"
 [credential]
 	helper = cache --timeout=10800
+[color]
+	ui = true
