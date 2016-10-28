@@ -47,7 +47,7 @@ gitBranch() {
   local normal='\[\033[00m\]'
   local br=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
   if [ "$br" ]; then
-    echo "${white}▪ $br ▪${normal}"
+    echo "${white}▪${br}▪${normal}"
   else
     echo "▫"
   fi
@@ -75,7 +75,7 @@ prompt() {
 }
 
 if [ "$color_prompt" = yes ]; then
-    PS1="${debian_chroot:+($debian_chroot)}$(gitBranch) $(userAndHost) ▪ $(workDir) ▪\n$(prompt)"
+    PS1="${debian_chroot:+($debian_chroot)}$(gitBranch) $(userAndHost) ▪ $(workDir)\n$(prompt)"
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
