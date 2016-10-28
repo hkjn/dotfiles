@@ -63,7 +63,7 @@ __prompt_command() {
   local lcyan='\[\033[1;36m\]'
   local red='\[\e[0;31m\]'
 
-  local pcolor="$lgreen"
+  local pcolor="$green"
   if [ $EXIT != 0 ]; then
     pcolor="$red"
   fi
