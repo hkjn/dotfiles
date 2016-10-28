@@ -43,11 +43,12 @@ fi
 
 # echo the current git branch
 gitBranch() {
-  local white='\[\033[01;11m\]'
+  local lwhite='\[\033[01;11m\]'
+  local dgray='\[\033[1;30m\]'
   local normal='\[\033[00m\]'
   local br=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
   if [ "$br" ]; then
-    echo "${white}▪${br}▪${normal}"
+    echo "${lwhite}${br}${dgray}木${normal}"
   else
     echo "▫"
   fi
@@ -57,7 +58,8 @@ gitBranch() {
 userAndHost() {
   local lgreen='\[\033[01;32m\]'
   local normal='\[\033[00m\]'
-  echo "${lgreen}\u@\h${normal}"
+  local dgray='\[\033[1;30m\]'
+  echo "${lgreen}\u@\h${dgray}人${normal}"
 }
 
 # echo current working directory
@@ -75,7 +77,7 @@ prompt() {
 }
 
 if [ "$color_prompt" = yes ]; then
-    PS1="${debian_chroot:+($debian_chroot)}$(gitBranch) $(userAndHost) ▪ $(workDir)\n$(prompt)"
+    PS1="${debian_chroot:+($debian_chroot)}$(gitBranch)$(userAndHost)$(workDir)\n$(prompt)"
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
