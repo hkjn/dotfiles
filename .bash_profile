@@ -56,14 +56,14 @@ __prompt_command() {
 
   local prompt="►"
 
-  local lwhite='\[\033[01;11m\]'
   local dgray='\[\033[1;30m\]'
-  local red='\[\e[0;31m\]'
+  local green='\[\033[00;32m\]'
+  local lwhite='\[\033[01;11m\]'
   local normal='\[\033[00m\]'
   local lcyan='\[\033[1;36m\]'
-  local pcolor="$lcyan"
-  local normal='\[\033[00m\]'
+  local red='\[\e[0;31m\]'
 
+  local pcolor="$lgreen"
   if [ $EXIT != 0 ]; then
     pcolor="$red"
   fi
