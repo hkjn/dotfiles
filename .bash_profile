@@ -67,7 +67,6 @@ __prompt_command() {
   if [ $EXIT != 0 ]; then
     pcolor="$red"
   fi
-  echo "color_prompt=$color_prompt"
   if [ "$color_prompt" = yes ]; then
     PS1="${lwhite}\$(gitBranch)${dgray}木${normal}$(userAndHost)$(workDir) \n${pcolor}${prompt}$normal "
   else
