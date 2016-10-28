@@ -43,15 +43,7 @@ fi
 
 # echo the current git branch
 gitBranch() {
-  local lwhite='\[\033[01;11m\]'
-  local dgray='\[\033[1;30m\]'
-  local normal='\[\033[00m\]'
-  local br=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
-  if [ "$br" ]; then
-    echo "${lwhite}${br}${dgray}木${normal}"
-  else
-    echo "▫"
-  fi
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
 
 # echo user and host
@@ -76,15 +68,21 @@ prompt() {
   echo "${lcyan}► ${normal}"
 }
 
-if [ "$color_prompt" = yes ]; then
-    PS1="${debian_chroot:+($debian_chroot)}$(gitBranch)$(userAndHost)$(workDir)\n$(prompt)"
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
-unset color_prompt force_color_prompt
+# Set the PS1 variable to define the prompt
+setPS1() {
+  local lwhite='\[\033[01;11m\]'
+  local dgray='\[\033[1;30m\]'
+  local normal='\[\033[00m\]'
 
-STARTCOLOR='\e[1;40m';
-ENDCOLOR="\e[0m"
+  if [ "$color_prompt" = yes ]; then
+    PS1="${debian_chroot:+($debian_chroot)}${lwhite}\$(gitBranch)${dgray}木${normal}$(userAndHost)$(workDir)\n$(prompt)"
+  else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+  fi
+  unset color_prompt force_color_prompt
+}
+
+setPS1
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
