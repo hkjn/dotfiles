@@ -105,6 +105,8 @@ fi
 alias pp="git pull && git push"
 alias gdc="git diff --cached"
 alias gs="git status"
+alias docker_rmcontainers="docker rm $(docker ps -a -q -f status=exited)"
+alias docker_rmimages='docker rmi $(docker images -q --filter "dangling=true")'
 
 alias e="emacsclient -nw $1"
 alias ec="e $HOME/.bash_profile"
