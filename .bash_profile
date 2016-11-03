@@ -105,6 +105,8 @@ fi
 alias pp="git pull && git push"
 alias gdc="git diff --cached"
 alias gs="git status"
+alias docker_rmcontainers="docker rm $(docker ps -a -q -f status=exited)"
+alias docker_rmimages='docker rmi $(docker images -q --filter "dangling=true")'
 
 alias e="emacsclient -nw $1"
 alias ec="e $HOME/.bash_profile"
@@ -118,6 +120,7 @@ alias xclip="xclip -selection c"
 alias shlogs="less ${HOME}/.shell_logs/${HOSTNAME}"
 
 export LANG="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
 export EDITOR=nano
 export GOPATH=${HOME}
 export PATH=/usr/local/homebrew/bin:/usr/local/homebrew/sbin:/usr/local/homebrew/Cellar/coreutils/8.25/libexec/gnubin/:${GOPATH}/src/hkjn.me/scripts:${GOPATH}/src/hkjn.me/scripts/tools:${HOME}/bin:.:$PATH
