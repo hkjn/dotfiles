@@ -117,6 +117,7 @@ alias mp50="mplayer -af scaletempo -fs -panscanrange -5 $@"
 alias xclip="xclip -selection c"
 alias shlogs="less ${HOME}/.shell_logs/${HOSTNAME}"
 
+export LANG="en_US.UTF-8"
 export EDITOR=nano
 export GOPATH=${HOME}
 # Enable support for vendor/ directories without import path rewriting:
