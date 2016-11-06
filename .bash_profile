@@ -119,14 +119,10 @@ alias mp50="mplayer -af scaletempo -fs -panscanrange -5 $@"
 alias xclip="xclip -selection c"
 alias shlogs="less ${HOME}/.shell_logs/${HOSTNAME}"
 
+export LANG="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
 export EDITOR=nano
 export GOPATH=${HOME}
-# Enable support for vendor/ directories without import path rewriting:
-# https://golang.org/s/go15vendor
-#
-# This environment variable can be dropped once the vendor support is
-# the default setting (expected to be Go 1.6).
-export GO15VENDOREXPERIMENT=1
 export PATH=/usr/local/homebrew/bin:/usr/local/homebrew/sbin:/usr/local/homebrew/Cellar/coreutils/8.25/libexec/gnubin/:${GOPATH}/src/hkjn.me/scripts:${GOPATH}/src/hkjn.me/scripts/tools:${HOME}/bin:.:$PATH
 export PYTHONPATH=.:..
 
