@@ -71,6 +71,9 @@
 (setq gofmt-command "goimports")
 (add-hook 'before-save-hook #'gofmt-before-save)
 
+;; We want to automatically format .tf files on save.
+(add-hook 'terraform-mode-hook #'terraform-format-on-save-mode)
+
 ;; ELPA packages; install interactively with M-x package-list-packages.
 (require 'package)
 (add-to-list 'package-archives
