@@ -29,23 +29,60 @@ if ! [ -x /usr/bin/tput ] || ! tput setaf 1 >&/dev/null; then
 fi
 
 # echo the current git branch
-gitBranch() {
+gitbranch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
 
 # echo user and host
-userAndHost() {
+userhost() {
   local lgreen='\[\033[01;32m\]'
   local normal='\[\033[00m\]'
   local dgray='\[\033[1;30m\]'
-  echo "${lgreen}\u@\h${dgray}人${normal}"
+  echo "${lgreen}\u@\h${dgray}♾${normal}"
 }
 
 # echo current working directory
-workDir() {
+workdir() {
   local lblue='\[\033[01;34m\]'
   local normal='\[\033[00m\]'
   echo "${lblue}\w${normal}"
+}
+
+# echo extra info, if available
+extrainfo() {
+  local lcyan='\[\033[1;36m\]'
+  local normal='\[\033[00m\]'
+  local red='\[\e[0;31m\]'
+  local awscreds=''
+  local dgray='\[\033[1;30m\]'
+  # TODO: Really should avoid a fs read every time here..
+  if [[ ! -e '.aws/creds.env' ]]; then
+    return
+  fi
+  local expiry=$(grep -Eo '[0-9]{10}$' .aws/creds.env)
+  local secsleft=$(($expiry-$(date +%s)))
+  if [[ $secsleft -lt 3600 ]]; then
+    # Expired credentials. (Apparently.)
+    awscreds="💩"
+  elif [[ $secsleft -lt 4000 ]]; then
+    # Credentails about to expire.
+    awscreds="💣"
+  else
+    # Good credentials.
+    awscreds="${lcyan}✓"
+  fi
+
+  local stage=${STAGE:-""}
+  local stageinfo="?"
+  if [[ "$stage" == *"prod"* ]]; then
+    stageinfo="${lcyan}☠"
+  elif [[ "$stage" == *"stag"* ]]; then
+    stageinfo="${lcyan}⚠"
+  else
+    stageinfo="${lcyan}☯"
+  fi
+  echo "${dgray}♾${awscreds}${dgray}♾${stageinfo}${normal}"
+
 }
 
 PROMPT_COMMAND=__prompt_command
@@ -60,17 +97,19 @@ __prompt_command() {
   local green='\[\033[00;32m\]'
   local lwhite='\[\033[01;11m\]'
   local normal='\[\033[00m\]'
-  local lcyan='\[\033[1;36m\]'
   local red='\[\e[0;31m\]'
 
+  # TODO: red/green here doesn't seem to exist consistently (alpine),
+  # even though other colors do. Switch?
   local pcolor="$green"
   if [ $EXIT != 0 ]; then
     pcolor="$red"
   fi
+  # 木 人 ♪
   if [ "$color_prompt" = yes ]; then
-    PS1="${lwhite}\$(gitBranch)${dgray}木${normal}$(userAndHost)$(workDir) \n${pcolor}${prompt}$normal "
+    PS1="${lwhite}\$(gitbranch)${dgray}♾${normal}$(userhost)$(workdir)$(extrainfo) \n${pcolor}${prompt}$normal "
   else
-    PS1="\$(gitBranch)木$(userAndHost)$(workDir) \n${prompt}"
+    PS1="$"
   fi
 }
 
