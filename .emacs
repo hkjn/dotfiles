@@ -82,3 +82,6 @@
 	;; For important compatibility libraries like cl-lib
 	(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
+
+;; Add homebrew's bin directory to exec-path.
+(setq exec-path (append exec-path '("/usr/local/homebrew/bin")))
