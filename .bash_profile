@@ -49,13 +49,20 @@ workdir() {
 }
 
 # echo extra info, if available
+#
+# TODO(hkjn): Improve the setup for "extrainfo" and make it extensible:
+
+# 1. Read from some inmemory store / unix socket or similar, so no
+#    filesystem access is necessary just to draw the prompt
+# 2. Have separate timer-based job that checks stuff and writes to socket:
+#    - connectivity (can ping 8.8.8.8, DNS resolution works, VPN is up/down)
+#    - number of running docker containers (specifically, hkjn/fileserver containers)
 extrainfo() {
   local lcyan='\[\033[1;36m\]'
   local normal='\[\033[00m\]'
   local red='\[\e[0;31m\]'
   local awscreds=''
   local dgray='\[\033[1;30m\]'
-  # TODO: Really should avoid a fs read every time here..
   if [[ ! -e '.aws/creds.env' ]]; then
     return
   fi
