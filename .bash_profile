@@ -157,6 +157,7 @@ alias docker_rmimages='docker rmi $(docker images -q --filter "dangling=true")'
 
 alias e="emacsclient -nw $1"
 alias ec="e $HOME/.bash_profile"
+alias ecf="e $HOME/.ssh/config"
 alias rf="[ -e $HOME/.bash_profile ] && source $HOME/.bash_profile || source $HOME/.bashrc"
 alias tc="tmux new -s $1"
 alias ta="tmux attach -d -t $1"
