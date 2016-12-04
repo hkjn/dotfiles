@@ -152,6 +152,7 @@ alias gdc="git diff --cached"
 alias gs="git status"
 
 alias docker_rmcontainers='docker rm $(docker ps -a -q -f status=exited)'
+alias docker_rmall='docker rm -f $(docker ps -a -q) && docker rmi $(docker images -q --filter "dangling=true")'
 alias docker_rmimages='docker rmi $(docker images -q --filter "dangling=true")'
 
 alias e="emacsclient -nw $1"
