@@ -72,7 +72,7 @@
 (add-hook 'before-save-hook #'gofmt-before-save)
 
 ;; We want protobuf-mode for .proto files.
-(require 'protobuf-mode)
+;; (require 'protobuf-mode)
 
 ;; We want to automatically format .tf files on save.
 (add-hook 'terraform-mode-hook #'terraform-format-on-save-mode)
