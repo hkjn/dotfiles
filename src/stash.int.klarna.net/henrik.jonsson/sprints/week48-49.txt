@@ -1,0 +1,13 @@
+# Sprint week47 - 48 retrospective
+
+- Just getting started, might be less structured than some circles (file our own
+  tickets)
+- Spartak was working on communications sendouts, present for some kickoff sessions
+  but didn't have time to help out with development
+- Might not need huge amount of structure, c.f. ShuHaRi
+- Business processes around mapping issues and sending reconciliation reports fully
+  handed off to Maria at this point (last parts merged with Mariana's help)
+- Accrued interest is progressing, found issues that forced us to rework prototype
+- Retrodated checks is at risk for EOY, even if our parts were done we also need
+  accrued interest to be live in production first, and some significant validation
+  from business perspective that the cutover will not lose or double-count postings

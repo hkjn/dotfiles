@@ -136,6 +136,11 @@ else
 	echo "No '$BASH_FUNCS' found. Try 'go get hkjn.me/scripts'?"
 fi
 
+KLARNA_BASH="$HOME/src/stash.int.klarna.net/henrik.jonsson/hacks/klarna_bash.sh"
+if [ -e "$KLARNA_BASH" ]; then
+  source "$KLARNA_BASH"
+fi
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     eval "`dircolors -b`"
@@ -171,7 +176,7 @@ export LANG="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export EDITOR=nano
 export GOPATH=${HOME}
-export PATH=/usr/local/homebrew/bin:/usr/local/homebrew/sbin:/usr/local/homebrew/Cellar/coreutils/8.25/libexec/gnubin/:${GOPATH}/src/hkjn.me/scripts:${GOPATH}/src/hkjn.me/scripts/tools:${HOME}/bin:.:$PATH
+export PATH=/usr/local/homebrew/opt/gnu-tar/libexec/gnubin:/usr/local/homebrew/bin:/usr/local/homebrew/sbin:/usr/local/homebrew/Cellar/coreutils/8.25/libexec/gnubin/:${GOPATH}/src/hkjn.me/scripts:${GOPATH}/src/hkjn.me/scripts/tools:${HOME}/bin:.:$PATH
 export PYTHONPATH=.:..
 
 # Don't scatter __pycache__ directories all over the place.
