@@ -16,6 +16,7 @@
 # Default directory to save the downloaded torrents.
 # directory = ./staging/
 directory = /media/clown/staging
+# directory = /media/musashi/staging
 
 # Default session directory. Make sure you don't run multiple instance
 # of rtorrent using the same session directory. Perhaps using a

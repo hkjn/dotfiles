@@ -71,6 +71,9 @@
 (setq gofmt-command "goimports")
 (add-hook 'before-save-hook #'gofmt-before-save)
 
+(add-to-list 'load-path (concat (getenv "GOPATH") "/src/github.com/golang/lint/misc/emacs"))
+(require 'golint)
+
 ;; We want protobuf-mode for .proto files.
 ;; (require 'protobuf-mode)
 
