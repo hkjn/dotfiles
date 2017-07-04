@@ -179,6 +179,13 @@ export GOPATH=${HOME}
 export PATH=/usr/local/go/bin:/usr/local/homebrew/opt/gnu-tar/libexec/gnubin:/usr/local/homebrew/opt/curl/bin:/usr/local/homebrew/bin:/usr/local/homebrew/sbin:/usr/local/homebrew/Cellar/coreutils/8.25/libexec/gnubin/:${GOPATH}/src/hkjn.me/scripts:${GOPATH}/src/hkjn.me/scripts/tools:${GOPATH}/src/hkjn.me/ironkey:${HOME}/bin:.:$PATH
 export PYTHONPATH=.:..
 
+# When running nmon, by default show:
+# - long-term CPU averages (l)
+# - memory & swap          (m)
+# - kernel stats & loadavg (k)
+# - top processes          (t)
+export NMON=lmkt
+
 # Don't scatter __pycache__ directories all over the place.
 export PYTHONDONTWRITEBYTECODE=1
 
