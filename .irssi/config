@@ -311,6 +311,7 @@ ignores = (
       "#coreos",
       "#bitcoin",
       "#bitcoin-dev",
+      "#bitcoin-wizards",
       "#datadog",
       "#docker",
       "#emacs",
