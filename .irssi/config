@@ -319,6 +319,7 @@ ignores = (
       "#lesswrong",
       "#tor",
       "#tails",
+      "#tezos",
     );
   },
   { mask = "Penysman"; level = "ALL"; }
