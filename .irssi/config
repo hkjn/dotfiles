@@ -52,6 +52,7 @@ chatnets = {
   };
   EFNet = { 
     type = "IRC";
+    nick = "hkjn0";
     max_kicks = "4";
     max_msgs = "3";
     max_whois = "1";
@@ -76,7 +77,7 @@ chatnets = {
   };
   OFTC = {
     type = "IRC";
-    nick = "hkjn";
+    nick = "hkjn0";
     max_kicks = "1";
     max_msgs = "3";
     max_whois = "30";
@@ -106,7 +107,7 @@ chatnets = {
     max_whois = "30";
   };
   SILC = { type = "SILC"; };
-  freenode = { type = "IRC"; nick = "hkjn"; };
+  freenode = { type = "IRC"; nick = "hkjn0"; };
 };
 
 channels = (
