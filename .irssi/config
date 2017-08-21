@@ -311,6 +311,7 @@ ignores = (
       "#archlinux",
       "#coreos",
       "#bitcoin",
+      "#bitcoin-commits",
       "#bitcoin-dev",
       "#bitcoin-wizards",
       "#datadog",
@@ -324,6 +325,10 @@ ignores = (
       "#tezos",
     );
   },
+  { mask = "Birgirnn"; level = "ALL"; },
+  { mask = "Entimeu"; level = "ALL"; },
+  { mask = "hREFNINg"; level = "ALL"; },
+  { mask = "Artehea"; level = "ALL"; },
   { mask = "Penysman"; level = "ALL"; }
 );
 windows = {
