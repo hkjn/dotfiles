@@ -116,9 +116,8 @@ channels = (
   { name = "#bitcoin"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#bitcoin-commits"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#bitcoin-dev"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#bitcoin-forks"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#bitcoin-wizards"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#datadog"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#datadog"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#docker"; chatnet = "freenode"; autojoin = "Yes"; },  
   { name = "#emacs"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#go-nuts"; chatnet = "freenode"; autojoin = "Yes"; },
@@ -130,6 +129,7 @@ channels = (
   { name = "#tor"; chatnet = "OFTC"; autojoin = "Yes"; },
   { name = "#tails"; chatnet = "OFTC"; autojoin = "Yes"; },
 
+  # IRCNET
   { name = "#irssi"; chatnet = "ircnet"; autojoin = "No"; },
   { name = "silc"; chatnet = "silc"; autojoin = "No"; }
 );
@@ -313,8 +313,8 @@ ignores = (
       "#bitcoin",
       "#bitcoin-commits",
       "#bitcoin-dev",
+      "#bitcoin-forks",
       "#bitcoin-wizards",
-      "#datadog",
       "#docker",
       "#emacs",
       "#go-nuts",
