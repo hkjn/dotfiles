@@ -160,7 +160,7 @@ alias docker_rmcontainers='docker rm $(docker ps -a -q -f status=exited)'
 alias docker_rmall='docker rm -f $(docker ps -a -q) && docker rmi $(docker images -q --filter "dangling=true")'
 alias docker_rmimages='docker rmi $(docker images -q --filter "dangling=true")'
 
-alias e="emacsclient -nw $1"
+alias e="vim $1"
 alias ec="e $HOME/.bash_profile"
 alias ecf="e $HOME/.ssh/config"
 alias rf="[ -e $HOME/.bash_profile ] && source $HOME/.bash_profile || source $HOME/.bashrc"
