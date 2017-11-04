@@ -316,6 +316,7 @@ ignores = (
       "#bitcoin-dev",
       "#bitcoin-forks",
       "#bitcoin-wizards",
+      "#bitcoin-workshops",
       "#blockstream-satellite",
       "#emacs",
       "#go-nuts",
