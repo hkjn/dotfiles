@@ -210,3 +210,7 @@ if which xhost > /dev/null 2>&1 && [ ! -z $DISPLAY ] && [ $(uname) != "Darwin" ]
 		xhost +si:localuser:$USER >/dev/null
 		xhost +si:localuser:root >/dev/null
 fi
+
+if [[ "${HOME}/.bash_profile_extra" ]]; then
+	source "${HOME}/.bash_profile_extra"
+fi
